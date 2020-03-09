@@ -11,10 +11,24 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
-Auth::routes();
+
+Route::resource('usuarios','WorkerController');
+Route::resource('utilerias','UtileriaController');
+Route::resource('personales','PersonalController');
+Route::resource('comidas','ComidaController');
+Route::resource('eventos','EventoController');
+Route::resource('clientes','ClienteController');
+Route::resource('proveedores','ProveedorController');
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('auth/login', 'Auth\LoginController@authenticate')->name('authenticate');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
+
