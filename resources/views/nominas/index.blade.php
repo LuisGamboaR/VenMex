@@ -44,16 +44,21 @@
                                             <td>{{$item->lastname}}</td>
                                             <td>{{$item->identification}}</td>
                                             <td>{{$item->horas}}</td>
-                                            <td>{{$item->total}}</td>
+                                            <td>{{number_format($item->total)}}</td>
                                             <td class="text-center">
-                                              
+                                       
+
+                                            
+                                            <a href="{{ route('nominas.pdf', $item->id) }}" target="_blank" data-toggle="tooltip"
+                                                    data-placement="top" title="Generar pdf"> <i class="far fa-file-pdf"
+                                                        style="font-size: 20px;"></i></a>
 
                                                 <button onclick="destroy({{( $item->id)}});" data-toggle="tooltip"
-                                                    data-placement="top" title="Eliminar proveedor"> <i
+                                                    data-placement="top" title="Eliminar nomina"> <i
                                                         class="fa fa-trash ml-2 mr-2" style="font-size: 20px"></i></button>
                                               
                                                         {!! Form::open(['route' =>
-                                                                           ['proveedores.destroy',
+                                                                           ['nominas.destroy',
                                                                     $item->id], 'method' => 'DELETE', 'id' =>
                                                                     'confirm-delete']) !!}
 
@@ -107,7 +112,7 @@
 function destroy(personal_id) {
         Swal.fire({
             title: "¡Cuidado!",
-    text: "¿Estás seguro que deseas eliminar este proveedor?",
+    text: "¿Estás seguro que deseas eliminar esta nomina?",
   icon: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',

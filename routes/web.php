@@ -40,6 +40,8 @@ Route::get('alimentos/pdf', 'ComidaController@pdf')->name('alimentos.pdf');
 Route::get('personals/pdf', 'PersonalController@pdf')->name('personals.pdf');
 Route::get('proveedor/pdf', 'ProveedorController@pdf')->name('proveedores.pdf');
 Route::get('utileria/pdf', 'UtileriaController@pdf')->name('utilerias.pdf');
+Route::get('nomina/{id}/pdf', 'NominaController@pdf')->name('nominas.pdf');
+
 
 //Ajax
 

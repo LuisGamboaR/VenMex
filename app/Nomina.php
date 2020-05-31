@@ -7,12 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Nomina extends Model
 {
     protected $fillable = [
-        'total', 'horas', 'personal_id'
+        'total', 'horas', 'personal_id', 'cantidad', 'cantidad2','razon'
       ];
  
       public function Personal(){
  
-       return $this->hasMany(Personal::class, 'personal_id');
+       return $this->belongsTo(Personal::class);
        
    }
+
+   public function Deduccions(){
+ 
+    return $this->hasMany(Deduccion::class, 'nomina_id');
+    
+}
+
+
 }

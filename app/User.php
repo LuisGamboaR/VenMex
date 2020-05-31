@@ -46,6 +46,8 @@ class User extends Authenticatable
 
     }
 
+    
+
     public function Proveedor(){
 
         return $this->hasOne(Proveedor::class, 'user_id');

@@ -33,8 +33,9 @@
                                             <th>Apellido</th>
                                             <th>Cédula</th>
                                             <th>Telefono</th>
-                                            <th>Correo</th>
+                                          
                                             <th>Oficio</th>
+                                            <th>Correo</th>
                                             <th>Opciones</th>
 
                                         </tr>
@@ -47,7 +48,6 @@
                                             <td>{{$items->cedula}}</td>
                                             <td>{{$items->telefono}}</td>
                                             <td>{{$items->oficio}}</td>
-
                                             <td>{{$items->correo}}</td>
                                             <td class="text-center">
 
@@ -57,6 +57,7 @@
                                                     data-placement="top" title="Pagar nomina"> <i
                                                         class="fas fa-file-invoice-dollar mr-2"
                                                         style="font-size: 20px; color: green;"></i></button>
+                                                        
 
                                                 <a href="{{ route('personal.edit', $items->user_id) }}" data-toggle="tooltip"
                                                     data-placement="top" title="Editar personal"> <i class="fas fa-edit"
@@ -204,6 +205,8 @@
                         pagar</p>
                     <p>Los campos que contengan (<span style="color:red">*</span>) son
                         obligatorios</p>
+                        <button onclick="utileria();"  class="btn btn-primary"><span
+                                    class="fa fa-user"></span> Añadir deducciones</button></center>
                 </div>
 
 
@@ -262,7 +265,18 @@
                             <input type="text" class="form-control" name="cantidad" style="text-align:left;"
                                 placeholder="Bolivares soberanos por cada hora trabajada">
                         </div>
+
+                        
                     </div>
+                    <center>
+                  
+
+                                    <div id="utileria22">
+
+
+
+
+</div>      
                     <center>
                         <button type="submit" class="btn btn-success  mt-3">Guardar</button>
 
@@ -300,7 +314,29 @@
 </div>
 
 
+<script>
 
+function utileria() {
+
+var utileria = `
+<div class="row">
+<div class="col mt-3">
+<label class="alinear">Razon<span style="color:red">*</span></label>
+{{ Form::text('razon[]', null, ['class' => "form-control $errors->has('razon') ? ' is-invalid' : ''", 'id' => 'razon', 'maxlength' => 99999999, 'placeholder' => 'Introduzca una cantidad']) }}
+
+</div>
+<div class="col mt-3">
+<label class="alinear">Cantidad<span style="color:red">*</span></label>
+{{ Form::text('cantidad2[]', null, ['class' => "form-control $errors->has('cantidad2') ? ' is-invalid' : ''", 'id' => 'cantidad2', 'maxlength' => 99999999, 'placeholder' => 'Introduzca una cantidad']) }}
+</div>
+</div>
+`;
+
+$("#utileria22").append(utileria);
+}
+
+
+</script>
 
 
 <style>

@@ -156,6 +156,7 @@ class PersonalController extends Controller
      */
     public function edit($id)
     {
+    
         $items = User::find($id);
 
         return view('personal.edit', compact('items'));

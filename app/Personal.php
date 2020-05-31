@@ -16,9 +16,9 @@ class Personal extends Model
       
   }
 
-  public function Nomina(){
+  public function Nominas(){
  
-    return $this->belongsTo(Nomina::class);
+    return $this->hasMany(Nomina::class, 'personal_id');
     
 }
 }
