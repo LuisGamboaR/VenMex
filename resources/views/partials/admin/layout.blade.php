@@ -1,41 +1,66 @@
 <!DOCTYPE html>
-<html>
-  <head> 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dark Bootstrap Admin </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Royalty</title>
+
+    <!-- Fontfaces CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/font-face.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/vendor/mdi-font/css/material-design-iconic-font.min.css') }}">
+
+
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="{{ asset('assets/admin/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{ asset('assets/admin/vendor/font-awesome/css/font-awesome.min.css') }}">
-    <!-- Custom Font Icons CSS-->
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/font.css') }}">
-    <!-- Google fonts - Muli-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
-    <!-- theme stylesheet-->
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/style.default.css') }}" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/custom.css') }}">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <!--DATATABLE CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/vendor/bootstrap-4.1/bootstrap.min.css') }}">
+
+   
+     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/bootstrap-datapicker.css') }}">
+
+
+
+<!-- Data Table -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/assets/pages/data-table/css/buttons.dataTables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-  </head>
-  <body>
-<!--    Menu       -->
-@include ('partials/admin/sidebar')
+
+    <!-- Vendor CSS-->
+  
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/vendor/animsition/animsition.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/vendor/wow/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/vendor/css-hamburgers/hamburgers.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/vendor/slick/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/vendor/select2/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/vendor/vector-map/jqvmap.min.css') }}">
+
+
+
+
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/theme.css') }}">
+
+</head>
+
+<body class="animsition">
 
 
 <!--    Menu lateral    -->
+@include ('partials/admin/sidebar')
 
+
+
+<!--    Menu    -->
+  @include ('partials/admin/menu')
 
 
 <!--    Contenido editable    -->
@@ -46,23 +71,26 @@
 
 
   <!-- Jquery JS-->
+  <script src="{{ asset('assets\admin\vendor\jquery-3.2.1.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery/js/jquery.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery-ui/js/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bootstrap-datapicker.js') }}"></script>
 
-    <!-- JavaScript files-->
-    <script src="{{ asset('assets/admin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/admin/vendor/popper.js/umd/popper.min.js') }}"> </script>
-    <script src="{{ asset('assets/admin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/admin/vendor/jquery.cookie/jquery.cookie.js') }}"> </script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{{ asset('assets\admin\vendor\bootstrap-4.1\popper.min.js') }}"></script>
+    <script src="{{ asset('assets\admin\vendor\bootstrap-4.1\bootstrap.min.js') }}"></script>
+    <!-- Vendor JS       -->
+    <script src="{{ asset('assets\admin\vendor\slick\slick.min.js') }}">
+    </script>
+    <script src="{{ asset('assets\admin\vendor\animsition\animsition.min.js') }}"></script>
 
-    <script src="{{ asset('assets/admin/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('assets/admin/js/front.js') }}"></script>
-    
-    <script type="text/javascript" src="{{ asset('assets/admin/jquery-validate/jqueryValidate.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/admin/jquery-validate/additional-methods.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/admin/validaciones.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/admin/fontawesome.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/fontawesome.js') }}"></script>
 
-<!-- DATATABLE JS-->
-<script src="{{ asset('assets\admin\bower_components\datatables.net\js\jquery.dataTables.min.js') }}"></script>
+
+
+   <script src="{{ asset('assets\admin\bower_components\datatables.net\js\jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets\admin\bower_components\datatables.net-buttons\js\dataTables.buttons.min.js') }}"></script>
 <script src="{{ asset('assets\admin\assets\pages\data-table\js\jszip.min.js') }}"></script>
 <script src="{{ asset('assets\admin\assets\pages\data-table\js\pdfmake.min.js') }}"></script>
@@ -75,10 +103,32 @@
   
 
 
+<script type="text/javascript" src="{{ asset('assets\admin\sweet_alert.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets\admin\sweetalert2.all.min.js') }}"></script>
 
-  </body>
-</html>
 
+    </script>
+    <script src="{{ asset('assets\admin\vendor\circle-progress/circle-progress.min.js') }}"></script>
+    <script src="{{ asset('assets\admin\vendor\perfect-scrollbar\perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('assets\admin\vendor\chartjs\Chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets\admin\vendor\select2\select2.min.js') }}">
+    </script>
+    <script src="{{ asset('assets\admin\vendor\vector-map\jquery.vmap.js') }}"></script>
+    <script src="{{ asset('assets\admin\vendor\vector-map\jquery.vmap.min.js') }}"></script>
+    <script src="{{ asset('assets\admin\vendor\vector-map\jquery.vmap.sampledata.js') }}"></script>
+    <script src="{{ asset('assets\admin\vendor\vector-map\jquery.vmap.world.js') }}"></script>
+
+
+
+    <script type="text/javascript" src="{{ asset('assets/admin/jquery-validate/jqueryValidate.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/admin/jquery-validate/additional-methods.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/admin/validaciones.js') }}"></script>
+
+
+
+
+    <!-- Main JS-->
+    <script src="{{ asset('assets\admin\js\main.js') }}"></script>
 
 
     

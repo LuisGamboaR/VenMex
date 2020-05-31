@@ -15,6 +15,13 @@ class CreateComidasTable extends Migration
     {
         Schema::create('comidas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nombre');
+            $table->string('cantidad');
+            $table->enum('medida',['UNITARIO', 'KG']);
+            $table->string('precio');
+            $table->string('stock_min');
+            $table->string('stock_max');
+
             $table->timestamps();
         });
     }

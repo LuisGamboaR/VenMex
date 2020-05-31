@@ -19,11 +19,12 @@ Route::get('/', function () {
 
 Route::resource('usuarios','WorkerController');
 Route::resource('utilerias','UtileriaController');
-Route::resource('personales','PersonalController');
+Route::resource('personal','PersonalController');
 Route::resource('comidas','ComidaController');
 Route::resource('eventos','EventoController');
 Route::resource('clientes','ClienteController');
 Route::resource('proveedores','ProveedorController');
+Route::resource('nominas','NominaController');
 
 
 
@@ -32,3 +33,14 @@ Route::post('auth/login', 'Auth\LoginController@authenticate')->name('authentica
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/login', 'Auth\LoginController@login')->name('login');
 
+
+//PDFs
+
+Route::get('alimentos/pdf', 'ComidaController@pdf')->name('alimentos.pdf');
+Route::get('personals/pdf', 'PersonalController@pdf')->name('personals.pdf');
+Route::get('proveedor/pdf', 'ProveedorController@pdf')->name('proveedores.pdf');
+Route::get('utileria/pdf', 'UtileriaController@pdf')->name('utilerias.pdf');
+
+//Ajax
+
+Route::get('/getinfo', 'NominaController@getinfo')->name('personal.getinfo');

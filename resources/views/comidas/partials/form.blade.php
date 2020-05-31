@@ -26,29 +26,42 @@
 
     <div class="col mt-3">
         <label class="alinear">Nombre<span style="color:red">*</span></label>
-      <input type="text"  maxlength="25" class="form-control" name="nombre" placeholder="Por favor introduzca el nombre">
+        {{ Form::text('nombre', null, ['class' => "form-control $errors->has('nombre') ? ' is-invalid' : ''", 'id' => 'nombre', 'maxlength' => 30, 'placeholder' => 'Por favor introduzca el nombre del alimento.']) }}
     </div>
     <div class="col mt-3">
         <label class="alinear">Medida<span style="color:red">*</span></label>
         <select class="form-control" id="medida" name="medida">
             <option value="">Selecciona una opción</option>
-            <option value="12500">KG</option>
-            <option value="12500">UNITARIO</option>
+            <option value="KG">KG</option>
+            <option value="UNITARIO">UNITARIO</option>
         </select>
     </div>
 </div>
-<div class="row">
 
-<div class="col mt-3">
-        <label class="alinear">Stock<span style="color:red">*</span></label>
-      <input type="text" maxlength="99999999" class="form-control" name="stock_actual" placeholder="Por favor introduzca la cantidad de stock actual">
-    </div>
-  
-<div class="col mt-3">
-        <label class="alinear">Precio<span style="color:red">*</span></label>
-        {{ Form::text('precio', null, ['class' => "form-control $errors->has('precio') ? ' is-invalid' : ''", 'id' => 'precio', 'maxlength' => 9999999999, 'placeholder' => 'Introduzca el precio unitario o por kg']) }}
-    </div>
-</div>
+<div class="row">
+      <div class="col mt-3">
+          <label class="alinear">Cantidad<span style="color:red">*</span></label>
+          
+              {{ Form::text('cantidad', null, ['class' => "form-control $errors->has('cantidad') ? ' is-invalid' : ''", 'id' => 'cantidad', 'maxlength' => 9999999999, 'placeholder' => 'Por favor introduzca el stock del alimento.']) }}
+      </div>
+      <div class="col mt-3">
+          <label class="alinear">Precio<span style="color:red">*</span></label>
+          {{ Form::text('precio', null, ['class' => "form-control $errors->has('precio') ? ' is-invalid' : ''", 'id' => 'precio', 'maxlength' => 999999999, 'placeholder' => 'Por favor introduzca el precio del alimento dependiendo de la medida del mismo.']) }}
+          
+      </div>
+  </div>
+  <div class="row">
+      <div class="col mt-3">
+          <label class="alinear">Stock minimo<span style="color:red">*</span></label>
+          
+              {{ Form::text('stock_min', null, ['class' => "form-control $errors->has('stock_min') ? ' is-invalid' : ''", 'id' => 'stock_min', 'maxlength' => 9999999999, 'placeholder' => 'Por favor introduzca el stock minimo para las alertas.']) }}
+      </div>
+      <div class="col mt-3">
+          <label class="alinear">Stock maximo<span style="color:red">*</span></label>
+          {{ Form::text('stock_max', null, ['class' => "form-control $errors->has('stock_max') ? ' is-invalid' : ''", 'id' => 'stock_max', 'maxlength' => 9999999999, 'placeholder' => 'Por favor introduzca el stock maximo para las alertas.']) }}
+          
+      </div>
+  </div>
 
 
 

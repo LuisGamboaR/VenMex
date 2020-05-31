@@ -26,28 +26,22 @@
 
     <div class="col mt-3">
         <label class="alinear">Nombre<span style="color:red">*</span></label>
-      <input type="text" maxlength="25" class="form-control" name="nombre" placeholder="Por favor introduzca el nombre">
+        {{ Form::text('nombre', null, ['class' => "form-control $errors->has('nombre') ? ' is-invalid' : ''", 'id' => 'nombre', 'maxlength' => 25, 'placeholder' => 'Introduzca el nombre de la utileria']) }}
     </div>
     <div class="col mt-3">
-        <label class="alinear">Medida<span style="color:red">*</span></label>
-        <select class="form-control" id="medida" name="medida">
-            <option value="">Selecciona una opción</option>
-            <option value="12500">METROS</option>
-            <option value="12500">CENTIMETROS</option>
-            <option value="12500">UNITARIO</option>
-        </select>
+        <label class="alinear">Cantidad<span style="color:red">*</span></label>
+        {{ Form::text('cantidad', null, ['class' => "form-control $errors->has('cantidad') ? ' is-invalid' : ''", 'id' => 'cantidad', 'maxlength' => 9999999999, 'placeholder' => 'Introduzca la cantidad de stock de la utileria']) }}
     </div>
 </div>
 <div class="row">
-
-<div class="col mt-3">
-        <label class="alinear">Stock<span style="color:red">*</span></label>
-      <input type="text" maxlength="999999999" class="form-control" name="stock_actual" placeholder="Por favor introduzca la cantidad de stock actual">
-    </div>
   
 <div class="col mt-3">
-        <label class="alinear">Precio unitario<span style="color:red">*</span></label>
-        {{ Form::text('precio_unitario', null, ['class' => "form-control $errors->has('precio_unitario') ? ' is-invalid' : ''", 'id' => 'precio_unitario', 'maxlength' => 25, 'placeholder' => 'Introduzca el precio unitario o por metro']) }}
+        <label class="alinear">Precio <span style="color:red">*</span></label>
+        {{ Form::text('precio', null, ['class' => "form-control $errors->has('precio') ? ' is-invalid' : ''", 'id' => 'precio', 'maxlength' => 9999999999, 'placeholder' => 'Introduzca el precio unitario de la utileria']) }}
+    </div>
+    <div class="col mt-3">
+        <label class="alinear">Descripción<span style="color:red">*</span></label>
+        {{ Form::text('descripcion', null, ['class' => "form-control $errors->has('descripcion') ? ' is-invalid' : ''", 'id' => 'descripcion', 'maxlength' => 25, 'placeholder' => 'Introduzca una breve descripción']) }}
     </div>
 </div>
 

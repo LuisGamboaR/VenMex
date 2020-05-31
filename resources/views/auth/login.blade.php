@@ -47,7 +47,7 @@
                 <div class="content">
                 <form method="POST" action="{{ route('authenticate') }}" class="form-validate" autocomplete="off">
                 @csrf
-        <h2 class="text-center">Inicio de sesión</h2>
+        <h2 class="text-center mb-4">Inicio de sesión</h2>
                       @if ($error = $errors->first('password'))
   <div class="alert alert-danger mt-2">
     {{ $error }}
@@ -85,3 +85,16 @@
     <script src="{{ asset('assets/admin/js/front.js')}}"></script>
   </body>
 </html>
+
+<style>
+
+
+.login-page .form-holder .form {
+    background: white;
+}
+
+.text-center {
+    text-align: center!important;
+    color: black;
+}
+</style>

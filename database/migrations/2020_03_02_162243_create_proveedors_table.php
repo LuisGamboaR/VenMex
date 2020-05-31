@@ -15,6 +15,13 @@ class CreateProveedorsTable extends Migration
     {
         Schema::create('proveedors', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('rif');
+
+              //Relaciones 
+              $table->foreign('user_id')->references('id')->on('users')
+              ->onDelete('cascade')
+              ->onUpdate('cascade');
             $table->timestamps();
         });
     }

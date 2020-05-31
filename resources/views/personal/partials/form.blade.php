@@ -22,42 +22,50 @@
 <center>
     <h4 class="box-title mb-2">Datos</h4>
 </center>
-<div class="row">
 
-    <div class="col mt-3">
-        <label class="alinear">Nombre<span style="color:red">*</span></label>
-      <input type="text" class="form-control" name="nombre" maxlength="25" placeholder="Por favor introduzca el nombre">
-    </div>
-    <div class="col mt-3">
-    <label class="alinear">Apellido<span style="color:red">*</span></label>
-      <input type="text" class="form-control" maxlength="30" name="apellido" placeholder="Por favor introduzca el apellido">
-    </div>
-</div>
 <div class="row">
+      <div class="col mt-3">
+          <label class="alinear">Nombre<span style="color:red">*</span></label>
+          
+              {{ Form::text('name', null, ['class' => "form-control $errors->has('name') ? ' is-invalid' : ''", 'id' => 'name', 'maxlength' => 25, 'placeholder' => 'Por favor introduzca el nombre del personal.']) }}
+      </div>
+      <div class="col mt-3">
+          <label class="alinear">Apellido<span style="color:red">*</span></label>
+          {{ Form::text('lastname', null, ['class' => "form-control $errors->has('lastname') ? ' is-invalid' : ''", 'id' => 'lastname', 'maxlength' => 30, 'placeholder' => 'Por favor introduzca el apellido del personal.']) }}
+          
+      </div>
+  </div>
 
-    <div class="col mt-3">
-        <label class="alinear">Cédula<span style="color:red">*</span></label>
-      <input type="text" class="form-control"  maxlength="8"  name="cedula" placeholder="Por favor introduzca la cédula">
-    </div>
-  
-<div class="col mt-3">
-        <label class="alinear">Dirección<span style="color:red">*</span></label>
-        {{ Form::text('direccion', null, ['class' => "form-control $errors->has('direccion') ? ' is-invalid' : ''", 'id' => 'direccion', 'maxlength' => 25, 'placeholder' => 'Introduzca una breve direccion']) }}
-    </div>
-</div>
+<div class="row">
+      <div class="col mt-3">
+          <label class="alinear">Cédula<span style="color:red">*</span></label>
+          
+              {{ Form::text('identification', null, ['class' => "form-control $errors->has('identification') ? ' is-invalid' : ''", 'id' => 'identification', 'maxlength' => 8, 'placeholder' => 'Por favor introduzca el número de cédula del personal.']) }}
+      </div>
+      <div class="col mt-3">
+          <label class="alinear">Correo<span style="color:red">*</span></label>
+          {{ Form::email('email', null, ['class' => "form-control $errors->has('email') ? ' is-invalid' : ''", 'id' => 'email', 'maxlength' => 40, 'placeholder' => 'Introduzca una dirección de correo.']) }}
+          
+      </div>
+  </div>
 
 <div class="row">
 <div class="col mt-3">
         <label class="alinear">Teléfono<span style="color:red">*</span></label>
-      <input type="text" class="form-control" name="telefono" maxlength="11" placeholder="Por favor introduzca el número de teléfono">
+        {{ Form::text('telefono', null, ['class' => "form-control $errors->has('telefono') ? ' is-invalid' : ''", 'id' => 'telefono', 'maxlength' => 11, 'placeholder' => 'Introduzca un número de telefono.']) }}
+
     </div>
 
     <div class="col mt-3">
-        <label class="alinear">Cargo<span style="color:red">*</span></label>
-        <select class="form-control" id="cargo" name="cargo">
+        <label class="alinear">Oficio<span style="color:red">*</span></label>
+        <select class="form-control" id="oficio" name="oficio">
             <option value="">Selecciona una opción</option>
-            <option value="12500">Mesonero</option>
-            <option value="12500">Cocinero</option>
+            <option value="MESONERO">Mesonero</option>
+            <option value="COCINERO">Cocinero</option>
+            <option value="OBRERO">Obrero</option>
+            <option value="ASEO">Aseo</option>
+            <option value="DECORADOR">Decorador</option>
+
         </select>
     </div>
 </div>

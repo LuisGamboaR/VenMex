@@ -31,7 +31,7 @@ jQuery.validator.addMethod("notNumber", function (value, element, param) {
 
 
 jQuery.validator.addMethod("lettersonly", function (value, element) {
-    return this.optional(element) || /^[a-z ]+$/i.test(value);
+    return this.optional(element) || /^[a-z-ñ ]+$/i.test(value);
 }, "Solo son permitidos las letras y los espacios");
 
 

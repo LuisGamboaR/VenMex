@@ -15,6 +15,11 @@ class CreateUtileriasTable extends Migration
     {
         Schema::create('utilerias', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nombre');
+            $table->string('cantidad');
+            $table->string('descripcion');
+            $table->string('cantidad_en_uso')->nullable();
+            $table->string('precio');
             $table->timestamps();
         });
     }

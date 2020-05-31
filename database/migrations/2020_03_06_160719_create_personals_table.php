@@ -15,6 +15,15 @@ class CreatePersonalsTable extends Migration
     {
         Schema::create('personals', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->enum('oficio',['COCINERO','DECORADOR','ASEO', 'OBRERO', 'MESONERO']);
+
+
+             //Relaciones 
+             $table->foreign('user_id')->references('id')->on('users')
+             ->onDelete('cascade')
+             ->onUpdate('cascade');
+         
             $table->timestamps();
         });
     }

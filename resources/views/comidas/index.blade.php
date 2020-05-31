@@ -2,19 +2,33 @@
 
 @section("content")
 
-<div class="page-content ">
-<div class="page-header">
-          <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">Listado de Comida</h2>
-          </div>
-        </div>
-<div class="container-fluid">
-            <div class="row ">
-              <div class="col-lg-12 ">
-                <div class="block margin-bottom-sm">
-                  <div class="title text-center"><strong>  Alimentos</strong></div>
-                  <div class="table-responsive"> 
-                  <table id="simpletable" class="table table-striped  nowrap text-center">
+
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <center>
+                            <h4>Listado de alimentos</h4>
+                        </center>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-block">
+                            <div class="float-right mb-2">
+
+                                <a href="{{ route('comidas.create') }}" class="btn btn-primary">Registrar alimento</a>
+
+                            </div>
+                            <a href="{{ route('alimentos.pdf') }}" target="_blank" class="btn btn-primary mb-2 mt-2"
+                                                data-toggle="tooltip" data-placement="left"
+                                                title="Generar pdf"> <i class="feather icon-file-text"
+                                                    style="font-size: 20px; "></i> Generar PDF</a>
+
+                            <div class="dt-responsive table-responsive">
+                            <table id="simpletable" class="table table-striped  nowrap text-center">
                       <thead>
                         <tr>
                           <th>Nombre</th>
@@ -26,41 +40,101 @@
                         </tr>
                       </thead>
                       <tbody>
-                     
-                        <tr>
-                          <td>Tequeños</td>
-                          <td>UNITARIO</td>
-                          <td>40</td>
-                          <td>20000</td>
-                          <td class="text-center">
-
-                  
-
-<a href=""
-    data-toggle="tooltip" data-placement="top"
-    title="Editar usuario"> <i
-        class="fa fa-pencil-square-o mr-2"
-        style="font-size: 20px"></i></a>
-
-        <a href=""
-    data-toggle="tooltip" data-placement="top"
-    title="Editar usuario"> <i
-        class="fa fa-pencil-square-o mr-2"
-        style="font-size: 20px"></i></a>
+                      @foreach ($comidas as $items)
+                                        <tr>
+                                            <td>{{$items->nombre}}</td>
+                                            <td>{{$items->medida}}</td>
+                                            <td>{{$items->precio}}</td>
+                                            <td>{{$items->cantidad}}</td>
+                                            <td class="text-center">
 
 
-</td>
-                  </td>
 
-                        </tr>
-              
+
+
+                                            <a href="{{ route('comidas.edit', $items->id) }}"
+                                                                        data-toggle="tooltip" data-placement="top"
+                                                                        title="Editar alimento"> <i
+                                                                            class="fas fa-edit"
+                                                                            style="font-size: 20px; color: #4272d7;"></i></a>
+                                              
+
+                                                <button onclick="destroy({{( $items->id)}});" data-toggle="tooltip"
+                                                    data-placement="top" title="Eliminar alimento"> <i
+                                                        class="fa fa-trash ml-2 mr-2" style="font-size: 20px"></i></button>
+                                              
+                                                        {!! Form::open(['route' =>
+                                                                           ['comidas.destroy',
+                                                                    $items->id], 'method' => 'DELETE', 'id' =>
+                                                                    'confirm-delete']) !!}
+
+                                                                    {!! Form::close() !!}
+
+                                            </td>
+                                            </td>
+
+                                        </tr>
+                                        @endforeach
                       </tbody>
                     </table>
-                  </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-              </div>
-              </div>
-              </div>
-              </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<!-- END PAGE CONTAINER-->
+</div>
+</div>
+</div>
+</div>
+@endsection
+
+
+
+<style>
+    .fa-trash {
+        color: red;
+    }
+
+</style>
+
+
+@section('script')
+
+
+
+
+<script>
+function destroy(personal_id) {
+        Swal.fire({
+            title: "¡Cuidado!",
+    text: "¿Estás seguro que deseas eliminar este personal?",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Aceptar',
+  cancelButtonText: 'Cancelar'
+}).then((result) => {
+  if (result.value) {
+    
+    $('#confirm-delete').submit();
+
+    
+  }
+})
+}
+</script>
+
 
 @endsection
+
+
+
+

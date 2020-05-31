@@ -2,19 +2,29 @@
 
 @section("content")
 
-<div class="page-content ">
-<div class="page-header">
-          <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">Listado de usuarios</h2>
-          </div>
-        </div>
-<div class="container-fluid">
-            <div class="row ">
-              <div class="col-lg-12 ">
-                <div class="block margin-bottom-sm">
-                  <div class="title text-center"><strong>Usuarios</strong></div>
-                  <div class="table-responsive"> 
-                  <table id="simpletable" class="table table-striped  nowrap text-center">
+
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <center>
+                            <h4>Listado de usuarios</h4>
+                        </center>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-block">
+                            <div class="float-right mb-2">
+                                @can('usuarios.create')
+                                <a href="{{ route('usuarios.create') }}" class="btn btn-primary">Registrar cliente</a>
+                                @endcan
+                            </div>
+
+                            <div class="dt-responsive table-responsive">
+                            <table id="simpletable" class="table table-striped  nowrap text-center">
                       <thead>
                         <tr>
                           <th>Nombre</th>
@@ -58,11 +68,46 @@
                         @endforeach
                       </tbody>
                     </table>
-                  </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-              </div>
-              </div>
-              </div>
-              </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<!-- END PAGE CONTAINER-->
+</div>
+</div>
+</div>
+</div>
+@endsection
+
+
+
+<style>
+    .fa-trash {
+        color: red;
+    }
+
+  
+
+</style>
+
+
+@section('script')
+
+
+
+
+
+
+
 
 @endsection
+
+
+

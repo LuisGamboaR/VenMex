@@ -1,97 +1,242 @@
-<header class="header">
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid d-flex align-items-center justify-content-between">
-            <div class="navbar-header">
-                <!-- Navbar Header--><a href="{{route('home')}}" class="navbar-brand">
-                    <div class="brand-text brand-big visible text-uppercase"><strong
-                            class="text-primary">Ven</strong><strong>Mex</strong></div>
-                    <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div>
-                </a>
-                <!-- Sidebar Toggle Btn-->
-                <button class="sidebar-toggle"><i class="fas fa-arrow-left"></i></button>
-            </div>
-            <div class="right-menu list-inline no-margin-bottom">
-
-
-                <!-- Log out               -->
-                <div class="list-inline-item logout"> <a id="logout" href="login.html" class="nav-link"
-                        href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        <i class="icon-logout"></i> Cerrar Sesión
-
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-
-                </div>
-            </div>
-    </nav>
-</header>
-<div class="d-flex align-items-stretch">
-    <!-- Sidebar Navigation-->
-    <nav id="sidebar">
-        <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="{{ asset('assets/admin/img/avatar-6.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
-            <div class="title">
-                <h1 class="h5">{{Auth::user()->name}} {{Auth::user()->lastname}}</h1>
-                <p>Web Designer</p>
-            </div>
+<div class="page-wrapper">
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar2">
+        <div class="logo">
+            <a href="#">
+                <img src="{{ asset('assets/admin/images/icon/royalty.png') }}" alt="Cool Admin" />
+            </a>
         </div>
-        <!-- Sidebar Navidation Menus--><span class="heading">Menu</span>
-        <ul class="list-unstyled">
-            <li class="active"><a href="{{route('home')}}"> <i class="icon-home"></i>Inicio </a></li>
-            <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i
-                        class="fas fa-users" style="color:#6a6c70;"></i>Usuarios</a>
-                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="{{route('usuarios.create')}}">Registrar</a></li>
+        <div class="menu-sidebar2__content js-scrollbar1">
+            <div class="account2">
+                <div class="image img-cir img-120">
+                    <img src="{{ asset('assets/admin/images/icon/avatar-big-01.jpg') }}" alt="John Doe" />
+                </div>
+                <h4 class="name"> {{ Auth::user()->name}} {{ Auth::user()->lastname}} </h4>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    <i class="text-center"></i> Cerrar Sesión
+
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+
+            </div>
+            <nav class="navbar-sidebar2">
+                <ul class="list-unstyled navbar__list">
+
+                    <li>
+                        <a href="{{ route('home') }}">
+                            <i class="fas fa-home"></i></i>Inicio</a>
+                    </li>
+
+
+                    <li class="">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-calendar-week"></i>Eventos
+                            <span class="arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+
+
+                            <a href="{{route('eventos.create')}}">Registrar</a>
+
+
+
+
+
+                            <li>
+
+                                <a href="{{route('eventos.index')}}">Listado</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-truck"></i>Proveedores
+                            <span class="arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+
+
+                            <a href="{{route('proveedores.create')}}">Registrar</a>
+
+
+
+
+                            <li>
+
+                                <a href="{{route('proveedores.index')}}">Listado</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="">
+                        <a class="js-arrow" href="#">
+                        <i class="fas fa-apple-alt"></i>Alimentos
+                            <span class="arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+
+
+                            <a href="{{route('comidas.create')}}">Registrar</a>
+
+
+
+
+                            <li>
+
+                                <a href="{{route('comidas.index')}}">Listado</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                    <li class="">
+                        <a class="js-arrow" href="#">
+                        <i class="fas fa-id-card-alt"></i>Personal
+                            <span class="arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+
+
+                            <li>
+
+                                <a href="{{route('personal.create')}}">Registrar</a>
+
+                            </li>
+
+
+
+                            <li>
+
+                                <a href="{{route('personal.index')}}">Listado</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-archive"></i>Utilerias
+                            <span class="arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+
+
+                            <li>
+
+                                <a href="{{route('utilerias.create')}}">Registrar</a>
+
+                            </li>
+
+
+
+                            <li>
+
+                                <a href="{{route('utilerias.index')}}">Listado</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-suitcase"></i>Clientes
+                            <span class="arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+
+                            <li>
+
+                                <a href="{{route('clientes.create')}}">Registrar</a>
+
+                            </li>
+
+                            <li>
+
+                                <a href="{{route('clientes.index')}}">Listado</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                    <li class="has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-users"></i>Usuarios
+                            <span class="arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+
+                            <li>
+                              
+                            <li ><a href="{{route('usuarios.create')}}">Registrar</a></li>
+
+                    </li>
+
+                    <li>
+                      
                     <li><a href="{{route('usuarios.index')}}">Listado</a></li>
+                    </li>
+
                 </ul>
-            </li>
-            <li><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"> <i
-                        class="icon-windows" style="color:#6a6c70;"></i>Personal</a>
-                <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
-                    <li><a href="{{route('personales.create')}}">Registrar</a></li>
-                    <li><a href="{{route('personales.index')}}">Listado</a></li>
+                </li>
+
+
+
+                <li class="">
+                    <a class="js-arrow" href="#">
+                        <i class="fa fa-cog "></i>Mantenimiento
+                        <span class="arrow">
+                            <i class="fas fa-angle-down"></i>
+                        </span>
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="">
+                                <i class="fa fa-cog "></i>Backup</a>
+                        </li>
+
+                        <li>
+                            <a href="">
+                                <i class="fas fa-cog"></i></i>Bitacora</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+
+
+
+
+
+
                 </ul>
-            </li>
-            <li><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse">
-            <i class="fas fa-suitcase"  style="color:#6a6c70;"></i>Clientes</a>
-                <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
-                    <li><a href="{{route('clientes.create')}}">Registrar</a></li>
-                    <li><a href="{{route('clientes.index')}}">Listado</a></li>
+                </li>
                 </ul>
-            </li>
-            <li><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse"> <i
-                        class="fas fa-calendar-week" style="color:#6a6c70;"></i>Eventos</a>
-                <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
-                    <li><a href="{{route('eventos.create')}}">Registrar</a></li>
-                    <li><a href="{{route('eventos.index')}}">Listado</a></li>
-                </ul>
-            </li>
-            <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse"> <i
-                        class="fas fa-archive" style="color:#6a6c70;"></i>Utilerias</a>
-                <ul id="exampledropdownDropdown5" class="collapse list-unstyled ">
-                    <li><a href="{{route('utilerias.create')}}">Registrar</a></li>
-                    <li><a href="{{route('utilerias.index')}}">Listado</a></li>
-                </ul>
-            </li>
-            <li><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse">
-            <i class="fas fa-truck"  style="color:#6a6c70;"></i>Proveedores</a>
-                <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
-                    <li><a href="{{route('proveedores.create')}}">Registrar</a></li>
-                    <li><a href="{{route('proveedores.index')}}">Listado</a></li>
-                </ul>
-            </li>
-            <li><a href="#exampledropdownDropdown6" aria-expanded="false" data-toggle="collapse"> <i
-                        class="fas fa-apple-alt" style="color:#6a6c70;"></i>Alimentos</a>
-                <ul id="exampledropdownDropdown6" class="collapse list-unstyled ">
-                    <li><a href="{{route('comidas.create')}}">Registrar</a></li>
-                    <li><a href="{{route('comidas.index')}}">Listado</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    <!-- Sidebar Navigation end-->
+            </nav>
+        </div>
+    </aside>
+    <!-- END MENU SIDEBAR-->

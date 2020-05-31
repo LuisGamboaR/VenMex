@@ -1,16 +1,27 @@
-@extends ("partials.admin.layout")
 
+@extends ("partials.admin.layout")
 @section("content")
 
-<div class="page-content ">
-    <div class="page-header">
-        <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">Eventos</h2>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-lg-12 ">
+
+
+
+<!-- MAIN CONTENT-->
+<div class="main-content">
+				<div class="section__content section__content--p30">
+					
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="card">
+									<div class="card-header">
+										<center><h4 class="box-title">Registrar evento</h4>
+										<p>Los campos que contengan (<span style="color:red">*</span>) son
+                                                obligatorios</p>
+										</center>
+									</div>
+									<div class="card-body">
+                                    <div class="card-block">
+                                    <div class="row">
+                                    <div class="col-lg-12 ">
                 <div class="w3-show-inline-block mt-4 float-right col-12">
 
                     <div class="dropdown">
@@ -32,15 +43,7 @@
                 </div>
                 <div class="block margin-bottom-sm">
 
-                    <center>
-                        <div class="title text-center"><strong>Registro de evento</strong></div>
-                    </center>
-
-                    <center>
-                        <p>Los campos que contengan (<span style="color:red">*</span>) son
-                            obligatorios</p>
-                    </center>
-
+                    
                     <div class="card-body">
                         {!! Form::open(['route' => 'eventos.store', 'id' => 'formulario_registro_eventos']) !!}
 
@@ -54,11 +57,26 @@
                 </div>
 
             </div>
-        </div>
-    </div>
-</div>
+                                    </div> <!-- /.row -->
+                                </div>
+									</div>
+								</div>
+							</div>							
+						</div>										
+					
+				</div>
+			</div>
+			<!-- END PAGE CONTAINER-->
+         </div>
+    </div>  
+</div>    
+</div>  
+
 
 @endsection
+
+
+
 
 <script>
     function personal() {
