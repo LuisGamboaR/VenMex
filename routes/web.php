@@ -25,6 +25,8 @@ Route::resource('eventos','EventoController');
 Route::resource('clientes','ClienteController');
 Route::resource('proveedores','ProveedorController');
 Route::resource('nominas','NominaController');
+Route::resource('pruebas','PruebaController');
+Route::resource('comida-proveedor','ComidaProveedorController');
 
 
 
@@ -41,6 +43,8 @@ Route::get('personals/pdf', 'PersonalController@pdf')->name('personals.pdf');
 Route::get('proveedor/pdf', 'ProveedorController@pdf')->name('proveedores.pdf');
 Route::get('utileria/pdf', 'UtileriaController@pdf')->name('utilerias.pdf');
 Route::get('nomina/{id}/pdf', 'NominaController@pdf')->name('nominas.pdf');
+Route::get('nomina2/pdf', 'NominaController@pdf2')->name('nomina2.pdf');
+
 
 
 //Ajax

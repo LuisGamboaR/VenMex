@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Personal;
+use App\Comida;
+use App\Utileria;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +27,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $personallist = Personal::All();
+        $personals = $personallist->count();
+
+        $alimentolist = Comida::All();
+        $alimentos = $alimentolist->count();
+
+        $utilerialist = Utileria::All();
+        $utilerias = $utilerialist->count();
+
+   
+
+
+        return view('home', compact('personals', 'utilerias', 'alimentos'));
     }
 }

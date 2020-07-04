@@ -93,7 +93,7 @@
                        
                     
     EMPLEADO: {{$item->name}}  {{$item->lastname}}  <br>
-       CEDULA: {{$item->identification}} <br>
+       CEDULA: {{$item->tipo_c}}-{{$item->identification}} <br>
        TIPO DE SALARIO: Por hora <br>
        OFICIO: {{$item->oficio}}<br>
        @endforeach
@@ -127,15 +127,71 @@
     @endforeach
   </tr>
   
+  @php
+    $total = $sumar;
+@endphp
 </table>
-<div class="rectangulo2 col-md-6 float-right text-center">
+<br>
+<div class="rectangulo2 col-md-6 float-right text-center " >
     @foreach($info as $item)
-               TOTAL: <BR>        
+              <strong> Total de asignaciones: </strong><BR>        
                     
 
                {{number_format($item->total)}} Bs.S<br>
+               
+@php
+    $total2 = $item->total - $total;
+ 
+@endphp
+
        @endforeach
        </div>
+       <br>
+       <br>  <br>
+<table style="width:100%">
+
+<tr>
+<th>Descripción de las deducciones</th>
+   <th>Cantidad</th>
+   </tr>
+
+@foreach($info2 as $item)
+
+  <tr>
+ @if($sumar != '0')
+ <td>{{$item->razon}}</td>
+    <td>{{number_format($item->cantidad2)}}</td>
+
+ @else
+ <td>N/A</td>
+    <td>0</td>
+    @endif
+    @endforeach
+
+  </tr>
+
+</table>
+<br>
+
+       <div class="rectangulo2 col-md-6 float-right text-center">
+
+               <strong>Total deducciones:</strong> <BR>        
+                    
+
+               {{number_format($sumar)}} Bs.S<br>
+   
+       </div>
+       <br><br>
+       <br><br>
+       <div class="rectangulo2 col-md-6 float-right text-center" style="width:100%">
+
+<strong>Total neto a pagar:</strong> <BR>     
+
+
+
+{{number_format($total2)}}Bs.S<br>
+
+</div>
 
 </div>
 
@@ -157,8 +213,15 @@ table, th, td {
 }
 
 .rectangulo2 {
-     width: 215;
+     width: 210;
      height: 50px; 
+     border: 2px solid #555;
+     border-collapse: collapse;
+}
+
+.rectangulo3 {
+     width: 215;
+     height: 20px; 
      border: 2px solid #555;
      border-collapse: collapse;
 }

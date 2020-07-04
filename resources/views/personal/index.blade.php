@@ -29,8 +29,8 @@
                                 <table id="simpletable" class="table table-striped  nowrap text-center">
                                     <thead>
                                         <tr>
-                                            <th>Nombre</th>
-                                            <th>Apellido</th>
+                                            <th>Nombres</th>
+                                            <th>Apellidos</th>
                                             <th>Cédula</th>
                                             <th>Telefono</th>
                                           
@@ -45,8 +45,8 @@
                                         <tr>
                                             <td>{{$items->nombre}}</td>
                                             <td>{{$items->apellido}}</td>
-                                            <td>{{$items->cedula}}</td>
-                                            <td>{{$items->telefono}}</td>
+                                            <td>{{$items->tipo_c}}-{{number_format($items->cedula)}}</td>
+                                            <td>{{$items->codigo_t}}-{{$items->telefono}}</td>
                                             <td>{{$items->oficio}}</td>
                                             <td>{{$items->correo}}</td>
                                             <td class="text-center">
@@ -163,6 +163,7 @@
                 var obj = JSON.parse(response);
                 $('#nombre').val(obj[0].nombre);
                 $('#apellido').val(obj[0].apellido);
+                $('#tipo_c').val(obj[0].tipo_c);
                 $('#cedula').val(obj[0].cedula);
                 $('#id').val(obj[0].id);
                 $('#oficio').val(obj[0].oficio);
@@ -205,8 +206,10 @@
                         pagar</p>
                     <p>Los campos que contengan (<span style="color:red">*</span>) son
                         obligatorios</p>
-                        <button onclick="utileria();"  class="btn btn-primary"><span
-                                    class="fa fa-user"></span> Añadir deducciones</button></center>
+                        <button onclick="utileria();"  class="btn btn-primary"> Añadir deducciones</button>
+                                    <button onclick="cerrar();"  class="btn btn-primary">Quitar deduccion</button>
+                                    </center>
+                                    
                 </div>
 
 
@@ -240,8 +243,9 @@
                             <strong style="color:black">Cedula</strong><span style="color:red">*</span>
 
 
-
-                            <input type="text" id="cedula" class="form-control" style="text-align:left;" disabled>
+                          <div class="row ml-1">
+                            <input type="text" id="tipo_c" class="form-control col-sm-2 mr-1"  style="text-align:left;" disabled><input type="text" id="cedula" class="form-control col-sm-9" style="text-align:left;" disabled>
+                            </div>
                         </div>
 
                         <div class="mt-3 col-sm-12">
@@ -319,7 +323,7 @@
 function utileria() {
 
 var utileria = `
-<div class="row">
+<div class="row parent">
 <div class="col mt-3">
 <label class="alinear">Razon<span style="color:red">*</span></label>
 {{ Form::text('razon[]', null, ['class' => "form-control $errors->has('razon') ? ' is-invalid' : ''", 'id' => 'razon', 'maxlength' => 99999999, 'placeholder' => 'Introduzca una cantidad']) }}
@@ -336,6 +340,12 @@ $("#utileria22").append(utileria);
 }
 
 
+
+
+function cerrar(){
+    $( ".parent" ).remove();
+      }
+ 
 </script>
 
 

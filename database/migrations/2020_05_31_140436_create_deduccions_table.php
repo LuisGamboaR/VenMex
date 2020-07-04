@@ -16,8 +16,8 @@ class CreateDeduccionsTable extends Migration
         Schema::create('deduccions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('nomina_id');
-            $table->integer('cantidad');
-            $table->integer('razon');
+            $table->integer('cantidad2');
+            $table->string('razon');
             $table->timestamps();
 
             $table->foreign('nomina_id')->references('id')->on('nominas')

@@ -12,9 +12,12 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         \DB::table('users')->insert(array(
-            'name'      => 'Luis',
-            'lastname'  => 'Gamboa',
-            'identification'  => '287453',
+            'name'      => 'Luis Miguel',
+            'lastname'  => 'Gamboa Rodriguez',
+            'identification'  => '4287453',
+            'telefono'  => '4242233',
+            'codigo_t' => '0412',
+            'tipo_c' => 'V',
             'email'     => 'admin@admin.com',
             'role'     => 'Admin',
             'email_verified_at' => now(),
@@ -24,9 +27,12 @@ class UsersTableSeeder extends Seeder
         ));
 
         \DB::table('users')->insert(array(
-            'name'      => 'Pedro',
-            'lastname'  => 'Jose',
-            'identification'  => '237453',
+            'name'      => 'Pedro Andres',
+            'lastname'  => 'Serrano Kvlar',
+            'identification'  => '2237453',
+            'codigo_t' => '0412',
+            'telefono'  => '5642233',
+            'tipo_c' => 'E',
             'role'     => 'Auditor',
             'email'     => 'auditor@auditor.com',
             'email_verified_at' => now(),
@@ -34,5 +40,7 @@ class UsersTableSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => now(),
         ));
+        
+  
     }
 }

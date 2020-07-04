@@ -12,15 +12,15 @@
                 <div class="card">
                     <div class="card-header">
                         <center>
-                            <h4>Listado de nominas</h4>
+                            <h4>Listado de ordenes de compra</h4>
                         </center>
                     </div>
                     <div class="card-body">
                         <div class="card-block">
                             <div class="float-right mb-2">
-                                <a href="{{ route('personal.index') }}" class="btn btn-primary">Realizar pago de nomina</a>
+                                <a href="{{ route('proveedores.create') }}" class="btn btn-primary">Registrar orden de compra</a>
                             </div>
-                            <a href="{{ route('nomina2.pdf') }}" target="_blank" class="btn btn-primary mb-2 mt-2"
+                            <a href="{{ route('proveedores.pdf') }}" target="_blank" class="btn btn-primary mb-2 mt-2"
                                                 data-toggle="tooltip" data-placement="left"
                                                 title="Generar pdf"> <i class="feather icon-file-text"
                                                     style="font-size: 20px; "></i> Generar PDF</a>
@@ -28,38 +28,40 @@
                             <table id="simpletable" class="table table-striped  nowrap text-center">
                       <thead>
                         <tr>
-                          <th>Nombres</th>
-                          <th>Apellidos</th>
-                          <th>Cedula</th>
-                          <th>Horas trabajadas</th>
-                          <th>Pago total</th>
+                          <th>Usuario</th>
+                          <th>Proveedor</th>
+                          <th>Cantidad de articulos</th>
+                          <th>Total</th>
+                          <th>Dirección</th>
                           <th>Opciones</th>
 
                         </tr>
                       </thead>
                       <tbody>
-                      @foreach ($nomina as $item)
+                      @foreach ($compro as $item)
                                         <tr>
-                                            <td>{{$item->name}}</td>
-                                            <td>{{$item->lastname}}</td>
-                                            <td>{{$item->tipo_c}}-{{$item->identification}}</td>
-                                            <td>{{$item->horas}}</td>
-                                            <td>{{number_format($item->total)}}</td>
-                                            <td class="text-center">
+                                            <td></td>
                                        
+                                            <td class="text-center">
 
-                                            
-                                            <a href="{{ route('nominas.pdf', $item->id) }}" target="_blank" data-toggle="tooltip"
-                                                    data-placement="top" title="Generar pdf"> <i class="far fa-file-pdf"
-                                                        style="font-size: 20px;"></i></a>
 
-                                                <button onclick="destroy({{( $item->id)}});" data-toggle="tooltip"
-                                                    data-placement="top" title="Eliminar nomina"> <i
+
+
+
+                                            <a href="{{ route('proveedores.edit', ) }}"
+                                                                        data-toggle="tooltip" data-placement="top"
+                                                                        title="Editar proveedor"> <i
+                                                                            class="fas fa-edit"
+                                                                            style="font-size: 20px; color: #4272d7;"></i></a>
+                                              
+
+                                                <button onclick="destroy({{( )}});" data-toggle="tooltip"
+                                                    data-placement="top" title="Eliminar proveedor"> <i
                                                         class="fa fa-trash ml-2 mr-2" style="font-size: 20px"></i></button>
                                               
                                                         {!! Form::open(['route' =>
-                                                                           ['nominas.destroy',
-                                                                    $item->id], 'method' => 'DELETE', 'id' =>
+                                                                           ['proveedores.destroy',
+                                                                    ], 'method' => 'DELETE', 'id' =>
                                                                     'confirm-delete']) !!}
 
                                                                     {!! Form::close() !!}
@@ -112,7 +114,7 @@
 function destroy(personal_id) {
         Swal.fire({
             title: "¡Cuidado!",
-    text: "¿Estás seguro que deseas eliminar esta nomina?",
+    text: "¿Estás seguro que deseas eliminar este proveedor?",
   icon: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',

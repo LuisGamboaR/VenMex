@@ -11,4 +11,10 @@ class Comida extends Model
     protected $fillable = [
         'nombre', 'medida', 'cantidad', 'stock_min', 'stock_max', 'precio'
      ];
+
+     public function Proveedors(){
+
+        return $this->belongsToMany(Proveedor::class);
+        
+    }
 }

@@ -25,36 +25,44 @@
 
 <div class="row">
       <div class="col mt-3">
-          <label class="alinear">Nombre<span style="color:red">*</span></label>
+          <label class="alinear">Nombres<span style="color:red">*</span></label>
           
               {{ Form::text('name', null, ['class' => "form-control $errors->has('name') ? ' is-invalid' : ''", 'id' => 'name', 'maxlength' => 25, 'placeholder' => 'Por favor introduzca el nombre del personal.']) }}
       </div>
       <div class="col mt-3">
-          <label class="alinear">Apellido<span style="color:red">*</span></label>
+          <label class="alinear">Apellidos<span style="color:red">*</span></label>
           {{ Form::text('lastname', null, ['class' => "form-control $errors->has('lastname') ? ' is-invalid' : ''", 'id' => 'lastname', 'maxlength' => 30, 'placeholder' => 'Por favor introduzca el apellido del personal.']) }}
           
       </div>
   </div>
 
 <div class="row">
+<div class="col mt-3">
+<label class="alinear">Tipo de cédula<span style="color:red">*</span></label>
+
+<select name="tipo_c" id="" class="form-control">
+<option value="">Selecciona una opción</option>
+<option value="V">V</option>
+<option value="E">E</option>
+
+</select>
+    </div>
       <div class="col mt-3">
-          <label class="alinear">Cédula<span style="color:red">*</span></label>
+          <label class="alinear">Número de cédula<span style="color:red">*</span></label>
           
               {{ Form::text('identification', null, ['class' => "form-control $errors->has('identification') ? ' is-invalid' : ''", 'id' => 'identification', 'maxlength' => 8, 'placeholder' => 'Por favor introduzca el número de cédula del personal.']) }}
       </div>
-      <div class="col mt-3">
+     
+  </div>
+
+<div class="row">
+
+
+    <div class="col mt-3">
           <label class="alinear">Correo<span style="color:red">*</span></label>
           {{ Form::email('email', null, ['class' => "form-control $errors->has('email') ? ' is-invalid' : ''", 'id' => 'email', 'maxlength' => 40, 'placeholder' => 'Introduzca una dirección de correo.']) }}
           
       </div>
-  </div>
-
-<div class="row">
-<div class="col mt-3">
-        <label class="alinear">Teléfono<span style="color:red">*</span></label>
-        {{ Form::text('telefono', null, ['class' => "form-control $errors->has('telefono') ? ' is-invalid' : ''", 'id' => 'telefono', 'maxlength' => 11, 'placeholder' => 'Introduzca un número de telefono.']) }}
-
-    </div>
 
     <div class="col mt-3">
         <label class="alinear">Oficio<span style="color:red">*</span></label>
@@ -67,6 +75,25 @@
             <option value="DECORADOR">Decorador</option>
 
         </select>
+    </div>
+</div>
+<div class="row">
+<div class="col mt-3">
+<label class="alinear">Codigo<span style="color:red">*</span></label>
+
+<select name="codigo_t" id="" class="form-control">
+<option value="">Selecciona una opción</option>
+<option value="0426">0426</option>
+<option value="0416">0416</option>
+<option value="0412">0412</option>
+<option value="0424">0424</option>
+
+</select>
+    </div>
+<div class="col mt-3">
+        <label class="alinear">Teléfono<span style="color:red">*</span></label>
+        {{ Form::text('telefono', null, ['class' => "form-control $errors->has('telefono') ? ' is-invalid' : ''", 'id' => 'telefono', 'maxlength' => 7, 'placeholder' => 'Introduzca un número de telefono.']) }}
+
     </div>
 </div>
 

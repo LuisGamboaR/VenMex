@@ -17,4 +17,10 @@ class Proveedor extends Model
         return $this->belongsTo(User::class);
         
     }
+
+    public function Comidas(){
+ 
+        return $this->hasMany(Comida::class);
+        
+    }
 }

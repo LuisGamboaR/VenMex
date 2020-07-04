@@ -37,8 +37,8 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <h2 class="number">10</h2>
-                                    <span class="desc">Usuarios</span>
+                                    <h2 class="number">{{$personals}}</h2>
+                                    <span class="desc">Personal</span>
                                     <div class="icon" >
                                         <i class="zmdi zmdi-account-o" style="color: #007bff;"></i>
                                     </div>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <h2 class="number">10000</h2>
+                                    <h2 class="number">{{$utilerias}}</h2>
                                     <span class="desc">Utileria</span>
                                     <div class="icon">
                                         <i class="zmdi zmdi-shopping-cart" style="color: #007bff;"></i>
@@ -55,8 +55,8 @@
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <h2 class="number">1000</h2>
-                                    <span class="desc">Clientes </span>
+                                    <h2 class="number">{{$alimentos}}</h2>
+                                    <span class="desc">Alimentos</span>
                                     <div class="icon">
                                         <i class="zmdi zmdi-case" style="color: #007bff;"></i>
                                     </div>

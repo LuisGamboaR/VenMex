@@ -18,9 +18,9 @@
                     <div class="card-body">
                         <div class="card-block">
                             <div class="float-right mb-2">
-                                @can('clientes.create')
+                               
                                 <a href="{{ route('clientes.create') }}" class="btn btn-primary">Registrar cliente</a>
-                                @endcan
+                              
                             </div>
 
                             <div class="dt-responsive table-responsive">

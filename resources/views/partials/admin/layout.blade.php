@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Royalty</title>
+    <title>VenMex</title>
 
     <!-- Fontfaces CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/font-face.css') }}">

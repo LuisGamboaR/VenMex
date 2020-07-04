@@ -11,7 +11,9 @@
                 <div class="image img-cir img-120">
                     <img src="{{ asset('assets/admin/images/icon/avatar-big-01.jpg') }}" alt="John Doe" />
                 </div>
-                <h4 class="name"> {{ Auth::user()->name}} {{ Auth::user()->lastname}} </h4>
+                <center><h4 class="name"> {{ Auth::user()->name}} <br>{{ Auth::user()->lastname}}   </h4></center>
+                
+
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     <i class="text-center"></i> Cerrar Sesión
@@ -30,6 +32,10 @@
                     <li>
                         <a href="{{ route('home') }}">
                             <i class="fas fa-home"></i></i>Inicio</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('nominas.index') }}">
+                            <i class="fas fa-file-invoice-dollar" style="color: green;"></i></i>Nominas</a>
                     </li>
 
 

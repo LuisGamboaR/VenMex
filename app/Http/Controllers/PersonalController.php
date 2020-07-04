@@ -28,7 +28,7 @@ class PersonalController extends Controller
     {
 
 
-       $personal = \DB::select('SELECT users.id, personals.user_id, personals.id, users.name AS nombre, 
+       $personal = \DB::select('SELECT users.id, personals.user_id, users.tipo_c, users.codigo_t, personals.id, users.name AS nombre, 
        users.lastname as apellido, users.identification as cedula, users.email as correo, 
        users.telefono as telefono, personals.oficio 
 
@@ -60,7 +60,13 @@ class PersonalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
     {
+
+     
+            
+
+
 
         $vpersonal = \DB::select('SELECT identification FROM users WHERE identification = ?' , [$request->identification]);
             
@@ -95,7 +101,8 @@ class PersonalController extends Controller
 
 
         $personal = User::create(["name" => $request->name,"lastname" => $request->lastname, 
-        "email" => $request->email, "telefono" => $request->telefono, "identification" => $request->identification ]);
+        "email" => $request->email, "telefono" => $request->telefono, "identification" => $request->identification, 
+        "tipo_c" =>$request->tipo_c, "codigo_t" =>$request->codigo_t ]);
 
 
         $oficio = Personal::create(["oficio" => $request->oficio, "user_id" => $personal->id ]);

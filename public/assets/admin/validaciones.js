@@ -64,7 +64,7 @@ $("#formulario_registro_clientes").validate({
         telefono: {
             required: true,
             number: true,
-            minlength: 11
+            minlength: 7
         },
     },
 
@@ -91,7 +91,7 @@ $("#formulario_registro_clientes").validate({
         },
         telefono: {
             required: 'Por favor ingresa el numero de teléfono',
-            minlength: 'Por favor ingresa un numero de teléfono valido (11 digitos)',
+            minlength: 'Por favor ingresa un numero de teléfono valido (7 digitos)',
             number: 'Solo se permiten números'
         },
     }
@@ -225,19 +225,19 @@ $("#formulario_registro_usuarios").validate({
 $("#formulario_registro_personal").validate({
 
     rules: {
-        nombre: {
+        name: {
             required: true,
             notNumber: true,
             lettersonly: true,
             minlength: 3
         },
-        apellido: {
+        lastname: {
             required: true,
             notNumber: true,
             lettersonly: true,
             minlength: 3
         },
-        cedula: {
+        identification: {
             required: true,
            number: true,
             minlength: 7
@@ -250,7 +250,7 @@ $("#formulario_registro_personal").validate({
         telefono: {
             required: true,
             number: true,
-            minlength: 11
+            minlength: 7
         },
         cargo: {
           required: true,
@@ -259,17 +259,17 @@ $("#formulario_registro_personal").validate({
 
     messages: {
 
-        nombre: {
+        name: {
             required: 'Por favor ingresa el nombre del trabajador',
             minlength: 'Por favor ingresa mas de 3 caracteres',
             lettersonly: 'Solo se permiten letras'
         },
-        apellido: {
+        lastname: {
             required: 'Por favor ingresa el apellido del trabajador',
             minlength: 'Por favor ingresa mas de 3 caracteres',
             lettersonly: 'Solo se permiten letras'
         },
-        cedula: {
+        identification: {
             required: 'Por favor ingresa la cedula del trabajador',
             minlength: 'Por favor ingresa al menos 7 digitos',
            number: 'Solo se permiten números'
@@ -280,7 +280,7 @@ $("#formulario_registro_personal").validate({
         },
         telefono: {
             required: 'Por favor ingresa el numero de teléfono',
-            minlength: 'Por favor ingresa un numero de teléfono valido (11 digitos)',
+            minlength: 'Por favor ingresa un numero de teléfono valido (7 digitos)',
             number: 'Solo se permiten números'
         },
         cargo: {
@@ -314,7 +314,7 @@ $("#formulario_registro_proveedores").validate({
       telefono: {
           required: true,
           number: true,
-          minlength: 11
+          minlength: 7
       },
       correo: {
         required: true,
@@ -340,7 +340,7 @@ $("#formulario_registro_proveedores").validate({
       },
       telefono: {
           required: 'Por favor ingresa el numero de teléfono',
-          minlength: 'Por favor ingresa un numero de teléfono valido (11 digitos)',
+          minlength: 'Por favor ingresa un numero de teléfono valido (7 digitos)',
           number: 'Solo se permiten números'
       },
       correo: {
